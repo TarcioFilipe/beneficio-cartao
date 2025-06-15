@@ -4,6 +4,8 @@
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
+import router from './router'
+
 // Plugins
 import { registerPlugins } from '@/plugins'
 
@@ -20,5 +22,5 @@ import './assets/tailwind.css'
 const app: any = createApp(App)
 
 registerPlugins(app)
-
+app.use(router)
 app.mount('#app')

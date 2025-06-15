@@ -1,0 +1,60 @@
+<template>
+  <v-toolbar :elevation="8" class="bg-linear-to-b from-[#212F6B] to-[#2674CB]" height="200">
+    <v-toolbar-title class="text-lg">
+      <template v-slot:text>
+        <v-container>
+          <div class="flex flex-row items-center justify- w-full">
+            <div class="flex flex-row gap-4 w-10/12 lg:w-8/12  items-start justify-center">
+              <div class="fkex w-2/12">
+                <v-img lazy-src="/src/assets/images/logo_beneficios.png" src="/src/assets/images/logo_beneficios.png"
+                  height="60" width="100%">
+                </v-img>
+              </div>
+              <v-text-field placeholder="O que você procura" prepend-inner-icon="mdi-magnify" variant="flat" clearable
+                hide-details class="bg-white rounded-xl w-[80%]">
+              </v-text-field>
+            </div>
+            <div class="hidden lg:flex flex-row w-4/12 justify-end">
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 mr-2 rounded-xl bg-[#18234C]">
+                Login
+              </v-btn>
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 rounded-xl bg-[#18234C]">
+                Registre-se
+              </v-btn>
+            </div>
+            <div class="flex lg:hidden w-2/12 justify-end">
+              <v-menu transition="slide-x-transition" location="start">
+                <template v-slot:activator="{ props }">
+                  <v-btn icon="mdi-dots-vertical" variant="text" v-bind="props"></v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item v-for="(item, i) in items" :key="i" :value="i" @click="() => { handleLink() }">
+                    <v-list-item-title>
+                      {{ item.title }}
+                    </v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </div>
+          </div>
+        </v-container>
+      </template>
+    </v-toolbar-title>
+  </v-toolbar>
+</template>
+
+<script>
+
+export default {
+  name: 'Header',
+  data() {
+    return {
+      items: [
+        { title: 'Login' },
+        { title: 'Registre-se' },
+      ], 
+    }
+  },
+}
+</script>
