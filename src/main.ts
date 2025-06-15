@@ -17,7 +17,7 @@ import { createApp } from 'vue'
 import 'unfonts.css'
 import './assets/tailwind.css'
 
-const app = createApp(App)
+const app: any = createApp(App)
 
 registerPlugins(app)
 

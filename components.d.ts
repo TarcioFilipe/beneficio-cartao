@@ -9,7 +9,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BenefitItem: typeof import('./src/components/BenefitItem.vue')['default']
-    CategoryCircle: typeof import('./src/components/CategoryCircle.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
   }
 }
