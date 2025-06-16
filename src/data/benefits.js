@@ -24,7 +24,7 @@ export default [
   },
   { 
     name: 'Carrefour', 
-    image: '/src/assets/images/centauro.png', 
+    image: '/src/assets/images/carrefour.png', 
     discount: '12', 
     category: 'lar doce lar',
     description: 'Em qualquer produto da loja',

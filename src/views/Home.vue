@@ -46,7 +46,7 @@
           <v-slide-group v-model="carrouselSquareModel" show-arrows>
             <v-slide-group-item v-for="item in squareCarrousel" :key="item.image" v-slot="{ }">
               <v-card class="ma-4" color="grey-lighten-1" height="250" width="250"
-                @click="() => console.log('redirecionando')">
+                @click="() => handleLink()">
                 <v-img :lazy-src="item.image" :src="item.image" width="100%" height="100%" cover />
               </v-card>
             </v-slide-group-item>
