@@ -14,6 +14,7 @@ declare module 'vue' {
     Header: typeof import('./src/components/Header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HorizontalSlider: typeof import('./src/components/HorizontalSlider.vue')['default']
+    PrivacyPolicy: typeof import('./src/components/PrivacyPolicy.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
