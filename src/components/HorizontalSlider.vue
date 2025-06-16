@@ -82,7 +82,6 @@ export default {
     }
   },
   mounted() {
-    console.log(window.innerWidth )
     this.isMobile = window.innerWidth <= 768
   },
   methods: {
@@ -90,7 +89,6 @@ export default {
       this.$emit('view-benefit', item)
     },
      toggleMobileHover(index) {
-      console.log('aqui', index)
       if (!this.isMobile) return
       this.isHoveredItem = this.isHoveredItem === index ? null : index
     },

@@ -40,13 +40,13 @@ export default {
   data() {
     return {
       slides: [
-        { image: '/src/assets/images/casa-do-pao.png' },
-        { image: '/src/assets/images/pizzahut.png' },
-        { image: '/src/assets/images/moovida.png' },
-        { image: '/src/assets/images/drogaria-sao-paulo-slide.png' },
-        { image: '/src/assets/images/nike.png' },
-        { image: '/src/assets/images/petz-slide.jpg' },
-        { image: '/src/assets/images/petz2-slide.jpg' },
+        { image: '/images/casa-do-pao.png' },
+        { image: '/images/pizzahut.png' },
+        { image: '/images/moovida.png' },
+        { image: '/images/drogaria-sao-paulo-slide.png' },
+        { image: '/images/nike.png' },
+        { image: '/images/petz-slide.jpg' },
+        { image: '/images/petz2-slide.jpg' },
       ]
     }
   },  

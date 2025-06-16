@@ -34,7 +34,7 @@
           <a href="" class="hover:opacity-90 transition">
             <p class="text-md font-medium">Fale conosco</p>
             <div class="flex w-full items-center justify-center bg-white shadow-2xl rounded-sm p-2">
-              <v-img lazy-src="/src/assets/images/cc.png" src="/src/assets/images/cc.png" cover>
+              <v-img lazy-src="/images/cc.png" src="/images/cc.png" cover>
               </v-img>
             </div>
           </a>
