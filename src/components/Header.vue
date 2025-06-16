@@ -10,8 +10,8 @@
         <v-container style="overflow: visible !important;">
           <div class="flex flex-row items-center justify- w-full">
             <div class="flex flex-row gap-4 w-10/12 lg:w-8/12  items-start justify-center" >
-              <div class="flex w-2/12">
-                <v-img lazy-src="/images/logo_beneficios.png" src="/images/logo_beneficios.png"
+              <div class="flex w-2/12 cursor-pointer">
+                <v-img lazy-src="/images/logo_beneficios.png" src="/images/logo_beneficios.png" @click="() => $router.push('/')"
                   height="60" width="100%">
                 </v-img>
               </div>
@@ -44,10 +44,10 @@
             </div>
 
             <div class="hidden lg:flex flex-row w-4/12 justify-end">
-              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 mr-2 rounded-xl bg-[#18234C]">
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 mr-2 rounded-xl bg-[#18234C]" @click="handleLink">
                 Login
               </v-btn>
-              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 rounded-xl bg-[#18234C]">
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 rounded-xl bg-[#18234C]" @click="handleLink">
                 Registre-se
               </v-btn>
             </div>
@@ -94,7 +94,7 @@ export default {
       this.searchQuery = null;
       this.searchResults = []
     },
-    handleLink(item) {
+    handleLink() {
       window.open("https://cartaomasterclin.com.br/usuarios/cadastro", "_blank");
     }
   },

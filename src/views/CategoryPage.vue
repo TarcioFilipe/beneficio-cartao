@@ -1,27 +1,48 @@
 <template>
   <Banner :slides="slides" />
   <v-container class="my-12">
-    <p class="text-xl font-medium">{{ categoryName  }}</p>
+    <p class="text-xl font-medium">{{ categoryName }}</p>
 
-    <div class="flex flex-row gap-4 lg:gap-10 pb-8">
+    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-6 sm:gap-4 pb-8">
       <div
         v-if="filteredBenefits.length > 0"
-        v-for="item in filteredBenefits" 
+        v-for="(item, index) in filteredBenefits" 
         :key="item.name"
-        class="bg-white flex flex-col min-w-[204px] h-[204px] lg:min-w-[300px] lg:h-[300px] p-4 shadow-xl rounded-2xl group relative"
+        class="bg-white flex flex-col min-w-[204px] lg:min-w-[260px] p-4 shadow-xl rounded-2xl group relative"
+        @click="toggleMobileHover(index)"
       >
-        <v-img :lazy-src="item.image" :src="item.image" class="group-hover:blur-xs" />
-        <div
-          class="absolute inset-0 bg-black/70 hidden items-center justify-between p-4 opacity-100 rounded-2xl transform transition-transform duration-100 group-hover:opacity-0 group-hover:flex group-hover:flex-col group-hover:cursor-pointer">
-          <p class="text-white font-medium text-center lg:text-lg">{{ item.name }}</p>
-          <p class="text-white text-center lg:text-md">{{ item.description }}</p>
-          <button
-            class="bg-zinc-50 text-[#31c48d] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#31c48d] hover:text-white">
-            Ver Benefício
-          </button>
-        </div>
+      <v-img :lazy-src="item.image" :src="item.image" class="group-hover:blur-xs" />
+
+      <div
+        v-if="!isMobile"
+        class="absolute inset-0 bg-black/70 hidden items-center justify-between p-4 opacity-100 rounded-2xl transform transition-transform duration-100 group-hover:opacity-0 group-hover:flex group-hover:flex-col group-hover:cursor-pointer"
+      >
+        <p class="text-white font-medium text-center lg:text-lg">{{ item.name }}</p>
+        <p class="text-white text-center lg:text-md">{{ item.description }}</p>
+        <button
+          @click="handleClick(item)"
+          class="bg-zinc-50 text-[#31c48d] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#31c48d] hover:text-white"
+        >
+          Ver Benefício
+        </button>
+      </div>
+
+      <div
+        v-if="isMobile && isHoveredItem === index"
+        class="absolute inset-0 bg-black/70 flex flex-col items-center justify-between p-4 rounded-2xl cursor-pointer"
+      >
+        <p class="text-white font-medium text-center lg:text-lg">{{ item.name }}</p>
+        <p class="text-white text-center lg:text-md">{{ item.description }}</p>
+        <button
+          @click.stop="handleClick(item)"
+          class="bg-zinc-50 text-[#31c48d] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#31c48d] hover:text-white"
+        >
+          Ver Benefício
+        </button>
+      </div>
         <p class="text-center text-[#31c48d] font-medium lg:text-lg">Até {{ item.discount }}% de desconto</p>
       </div>
+
       <div v-else class="flex w-full items-center justify-center py-20">
         <p class="text-2xl">Nenhum item para este benefício!</p>
       </div>
@@ -31,7 +52,7 @@
 
 <script>
 import Banner from '@/components/Banner.vue'
-import benefitsList from '@/data/benefits.js' // ou qualquer fonte de dados
+import benefitsList from '@/data/benefits.js'
 
 export default {
   props: {
@@ -47,9 +68,14 @@ export default {
         { image: '/images/nike.png' },
         { image: '/images/petz-slide.jpg' },
         { image: '/images/petz2-slide.jpg' },
-      ]
+      ],
+      isMobile: false,
+      isHoveredItem: null
     }
   },  
+  mounted() {
+    this.isMobile = window.innerWidth <= 768
+  },
   computed: {
     categoryName() {
       return this.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
@@ -62,8 +88,13 @@ export default {
   },
   methods: {
     handleLink() {
-      alert('Abrir link ou fazer outra ação')
-    }
+      window.open("https://cartaomasterclin.com.br/usuarios/cadastro", "_blank");
+    },
+    toggleMobileHover(index) {
+      console.log('clicando: ', index , this.isMobile)
+      if (!this.isMobile) return
+      this.isHoveredItem = this.isHoveredItem === index ? null : index
+    },
   }
 }
 </script>

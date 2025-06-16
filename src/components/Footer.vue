@@ -34,9 +34,10 @@
         <div class="flex flex-col w-4/12 gap-2 items-center">
           <a href="" class="hover:opacity-90 transition">
             <p class="text-md font-medium">Fale conosco</p>
-            <div class="flex w-full items-center justify-center bg-white shadow-2xl rounded-sm p-2">
-              <v-img lazy-src="/images/cc.png" src="/images/cc.png" cover>
-              </v-img>
+            <div class="flex w-full items-center justify-center p-2">
+              <v-img lazy-src="/images/logo_beneficios.png" src="/images/logo_beneficios.png"
+                  cover="">
+                </v-img>
             </div>
           </a>
         </div>
