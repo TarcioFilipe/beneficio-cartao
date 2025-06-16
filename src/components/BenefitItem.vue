@@ -39,7 +39,12 @@ export default {
   },
   methods: {
     goToCategory() {
-      this.$router.push(`/beneficios/${this.category.toLowerCase().replace(/\s/g, '-')}`)
+      this.$router.push({
+        path: `/beneficios/${this.category.toLowerCase().replace(/\s/g, '-')}`,
+        query: {
+          label: this.text
+        }
+      });
     }
   }
 }

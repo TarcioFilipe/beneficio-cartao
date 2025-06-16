@@ -1,14 +1,14 @@
 <template>
   <Banner :slides="slides" />
   <v-container class="my-12">
-    <p class="text-xl font-medium">{{ categoryName }}</p>
+    <p class="text-xl font-medium">{{ labelName }}</p>
 
     <div class="flex flex-col sm:flex-row sm:flex-wrap gap-6 sm:gap-4 pb-8">
       <div
         v-if="paginatedBenefits.length > 0"
         v-for="(item, index) in paginatedBenefits" 
         :key="item.name"
-        class="bg-white flex flex-col min-w-[204px] lg:min-w-[260px] p-4 shadow-xl rounded-2xl group relative"
+        class="bg-white flex flex-col min-w-[204px] sm:w-[204px] lg:w-[260px] p-4 shadow-xl rounded-2xl group relative"
         @click="toggleMobileHover(index)"
       >
         <v-img :lazy-src="item.image" :src="item.image" class="group-hover:blur-xs" />
@@ -20,7 +20,7 @@
           <p class="text-white font-medium text-center lg:text-lg">{{ item.name }}</p>
           <p class="text-white text-center lg:text-md">{{ item.description }}</p>
           <button
-            @click="handleClick(item)"
+            @click="handleLink(item)"
             class="bg-zinc-50 text-[#31c48d] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#31c48d] hover:text-white"
           >
             Ver Benefício
@@ -34,13 +34,13 @@
           <p class="text-white font-medium text-center lg:text-lg">{{ item.name }}</p>
           <p class="text-white text-center lg:text-md">{{ item.description }}</p>
           <button
-            @click.stop="handleClick(item)"
+            @click.stop="handleLink(item)"
             class="bg-zinc-50 text-[#31c48d] font-semibold px-4 py-2 rounded-lg shadow hover:bg-[#31c48d] hover:text-white"
           >
             Ver Benefício
           </button>
         </div>
-        <p class="text-center text-[#31c48d] font-medium lg:text-lg">Até {{ item.discount }}% de desconto</p>
+        <p class="text-center text-[#31c48d] font-medium lg:text-lg">{{ item.name }}</p>
       </div>
 
       <div v-else class="flex w-full items-center justify-center py-20">
@@ -86,7 +86,15 @@ export default {
   },
   computed: {
     categoryName() {
-      return this.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+      return this.slug
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ')
+    },
+    labelName() {
+      const label = this.$route.query.label; 
+      return label;
     },
     filteredBenefits() {
       return benefitsList.filter(item =>
@@ -107,7 +115,6 @@ export default {
       window.open("https://cartaomasterclin.com.br/usuarios/cadastro", "_blank");
     },
     toggleMobileHover(index) {
-      console.log('clicando: ', index , this.isMobile)
       if (!this.isMobile) return
       this.isHoveredItem = this.isHoveredItem === index ? null : index
     },

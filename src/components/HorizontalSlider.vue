@@ -18,7 +18,7 @@
         <div
           v-for="(item, index) in items"
           :key="item.name"
-          class="bg-white flex flex-col min-w-[204px] h-[204px] lg:min-w-[300px] lg:h-[300px] p-4 shadow-xl rounded-2xl group relative"
+          class="bg-white flex flex-col min-w-[204px] min-h-[204px] lg:min-w-[300px] lg:h-[300px] p-4 shadow-xl rounded-2xl group relative"
           @click="toggleMobileHover(index)"
         >
           <v-img :lazy-src="item.image" :src="item.image" class="group-hover:blur-xs" />
@@ -51,7 +51,7 @@
             </button>
           </div>
           <p class="text-center text-[#31c48d] font-medium lg:text-lg">
-            Até {{ item.discount }}% de desconto
+            {{ item.name }}
           </p>
         </div>
       </v-container>
