@@ -2,7 +2,7 @@
   <div class="w-full h-full bg-white mt-4">
     <div class="flex overflow-x-auto" style="scrollbar-width: none;">
       <v-container class="flex flex-row gap-4 md:justify-between">
-        <BenefitItem v-for="item in benefits" :image="item.image" :link="item.link" :text="item.label"
+        <BenefitItem v-for="item in benefits" :image="item.image" :link="item.link" :text="item.label" :category="item.category"
           :objectPosition="item.position" />
       </v-container>
     </div>
@@ -70,44 +70,51 @@ export default {
     return {
       benefits: [
         {
-          label: 'Para se Divertir',
+          label: 'Para se divertir',
           image: '/images/diversao.png',
+          category: 'Lazer',
           link: '',
           position: 'center',
         },
         {
           label: 'Para comer',
           image: '/images/comida.png',
+          category: 'Alimentação',
           link: '',
           position: 'center'
         },
         {
           label: 'Lar doce lar',
           image: '/images/Lar-Doce-Lar.png',
+          category: 'Para sua casa',
           link: '',
           position: 'center'
         },
         {
           label: 'Cuidados com pet',
           image: '/images/pet.png',
+          category: 'Animais',
           link: '',
           position: 'center'
         },
-        {
-          label: 'Viagens',
-          image: '/images/viagem.png',
-          link: '',
-          position: '40% bottom'
-        },
+        // {
+        //   label: 'Viagens',
+        //   image: '/images/viagem.png',
+        //   category: ''],
+        //   link: '',
+        //   position: '40% bottom'
+        // },
         {
           label: 'Autocuidado',
           image: '/images/autocuidado.png',
+          category: 'Saúde',
           link: '',
           position: 'center'
         },
         {
           label: 'Foco na carreira',
           image: '/images/trabalho.png',
+          category: 'Educação',
           link: '',
           position: '50% 12px'
         },

@@ -27,7 +27,7 @@
         <div class="flex flex-col w-4/12 gap-2 items-center">
           <a href="" class="flex flex-row gap-2 hover:opacity-90 transition">
             <v-icon color="white">mdi-email-outline</v-icon>
-            <p class="text-md font-medium">atendimento@capitalconsig.com.br</p>
+            <p class="text-md font-medium">capital@clubecapitalbeneficios.com.br</p>
           </a>
         </div>
 

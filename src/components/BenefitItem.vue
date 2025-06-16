@@ -28,6 +28,10 @@ export default {
       type: String,
       required: true
     },
+    category: {
+      type: String,
+      required: true
+    },  
     objectPosition: {
       type: String,
       default: 'center'
@@ -35,7 +39,7 @@ export default {
   },
   methods: {
     goToCategory() {
-      this.$router.push(`/beneficios/${this.text.toLowerCase().replace(/\s/g, '-')}`)
+      this.$router.push(`/beneficios/${this.category.toLowerCase().replace(/\s/g, '-')}`)
     }
   }
 }

@@ -10,9 +10,9 @@
         <v-container style="overflow: visible !important;">
           <div class="flex flex-row items-center justify- w-full">
             <div class="flex flex-row gap-4 w-10/12 lg:w-8/12  items-start justify-center" >
-              <div class="flex w-2/12 cursor-pointer">
+              <div class="flex w-5/12 cursor-pointer">
                 <v-img lazy-src="/images/logo_beneficios.png" src="/images/logo_beneficios.png" @click="() => $router.push('/')"
-                  height="60" width="100%">
+                  height="56" width="100%">
                 </v-img>
               </div>
               <div class="w-full" style="position: relative; overflow: visible;">
