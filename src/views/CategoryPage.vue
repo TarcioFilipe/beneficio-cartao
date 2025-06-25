@@ -1,14 +1,32 @@
 <template>
   <Banner :slides="slides" />
   <v-container class="my-12">
-    <p class="text-xl font-medium">{{ labelName }}</p>
 
-    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-6 sm:gap-4 pb-8">
+    <div class="flex flex-row mb-6 justify-between items-center">
+      <div>
+        <p class="text-xl lg:text-2xl font-medium">{{ labelName }}</p>
+        <span class="text-zinc-600">resultados: {{ filteredBenefits.length }}</span>
+      </div>
+
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-4">
+          <v-select
+            v-model="ufSelected"
+            label="Selecione o estado"
+            :items="uf"
+            item-title="name"
+            variant="solo-filled"
+            hide-details
+            clearable
+          ></v-select>
+        </div>
+    </div>
+
+    <div class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 pb-8">
       <div
         v-if="paginatedBenefits.length > 0"
         v-for="(item, index) in paginatedBenefits" 
         :key="item.name"
-        class="bg-white flex flex-col min-w-[204px] sm:w-[204px] lg:w-[260px] p-4 shadow-xl rounded-2xl group relative"
+        class="bg-white flex flex-col p-4 gap-2 shadow-xl rounded-2xl group relative"
         @click="toggleMobileHover(index)"
       >
         <v-img :lazy-src="item.image" :src="item.image" class="group-hover:blur-xs" />
@@ -75,9 +93,39 @@ export default {
         { image: '/images/petz-slide.jpg' },
         { image: '/images/petz2-slide.jpg' },
       ],
+      uf: [
+        { name: "Acre" },
+        { name: "Alagoas" },
+        { name: "Amapá" },
+        { name: "Amazonas" },
+        { name: "Bahia" },
+        { name: "Ceará" },
+        { name: "Distrito Federal" },
+        { name: "Espírito Santo" },
+        { name: "Goiás" },
+        { name: "Maranhão" },
+        { name: "Mato Grosso" },
+        { name: "Mato Grosso do Sul" },
+        { name: "Minas Gerais" },
+        { name: "Pará" },
+        { name: "Paraíba" },
+        { name: "Paraná" },
+        { name: "Pernambuco" },
+        { name: "Piauí" },
+        { name: "Rio de Janeiro" },
+        { name: "Rio Grande do Norte" },
+        { name: "Rio Grande do Sul" },
+        { name: "Rondônia" },
+        { name: "Roraima" },
+        { name: "Santa Catarina" },
+        { name: "São Paulo" },
+        { name: "Sergipe" },
+        { name: "Tocantins" }
+      ],
+      ufSelected: null,
       isMobile: false,
       isHoveredItem: null,
-      itemsPerPage: 10,
+      itemsPerPage: 15,
       currentPage: 1,
     }
   },  
@@ -97,9 +145,16 @@ export default {
       return label;
     },
     filteredBenefits() {
-      return benefitsList.filter(item =>
-        item.category.toLowerCase().replace(/\s/g, '-') === this.slug
-      )
+      return benefitsList.filter(item => {
+        const categories = item.category
+          .split(',')
+          .map(c => c.trim().toLowerCase().replace(/\s/g, '-'));
+
+        const matchesCategory = categories.includes(this.slug);
+        const matchesUF = !this.ufSelected || item.estado.includes(this.ufSelected);
+
+        return matchesCategory && matchesUF;
+      });
     },
     paginatedBenefits() {
       const start = 0;

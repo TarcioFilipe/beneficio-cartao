@@ -44,17 +44,17 @@
             </div>
 
             <div class="hidden lg:flex flex-row w-4/12 justify-end">
-              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 mr-2 rounded-xl bg-[#18234C]" @click="handleLink">
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 mr-2 rounded-xl bg-[#18234C] text-white" @click="handleLink">
                 Login
               </v-btn>
-              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 rounded-xl bg-[#18234C]" @click="handleLink">
+              <v-btn variant="flat" size="large" class="text-none text-subtitle-1 rounded-xl bg-[#18234C] text-white" @click="handleLink">
                 Registre-se
               </v-btn>
             </div>
             <div class="flex lg:hidden w-2/12 justify-end">
               <v-menu transition="slide-x-transition" location="start">
                 <template v-slot:activator="{ props }">
-                  <v-btn icon="mdi-dots-vertical" variant="text" v-bind="props"></v-btn>
+                  <v-btn icon="mdi-dots-vertical" variant="text" v-bind="props" color="white"></v-btn>
                 </template>
 
                 <v-list>

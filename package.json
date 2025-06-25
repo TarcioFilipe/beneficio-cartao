@@ -8,12 +8,15 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
+    "type-check": "vue-tsc --build --force",
+    "serve": "serve dist"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.5",
     "@mdi/font": "7.4.47",
     "@tailwindcss/vite": "^4.1.10",
+    "embla-carousel": "^8.6.0",
+    "swiper": "^11.2.8",
     "tailwindcss": "^4.1.10",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1",

@@ -1,16 +1,11 @@
 <template>
   <div class="w-full h-full bg-white mt-4">
-    <div class="flex overflow-x-auto" style="scrollbar-width: none;">
-      <v-container class="flex flex-row gap-4 md:justify-between">
-        <BenefitItem v-for="item in benefits" :image="item.image" :link="item.link" :text="item.label" :category="item.category"
-          :objectPosition="item.position" />
-      </v-container>
-    </div>
+    <BenefitsCarousel :benefits="benefits"/>
 
     <Banner :slides="slides" />
 
-    <HorizontalSlider
-      :title="'Benefícios mais acessados'"
+    <SwiperHorizontal
+      title="Benefício mais acessados"
       :items="mostAcess"
       @view-benefit="handleLink"
     />
@@ -34,13 +29,13 @@
       </div>
     </v-container>
 
-    <div class="flex flex-col mt-16">
-      <HorizontalSlider
-        :title="'Benefícios mais recentes'"
-        :items="mostRecents"
-        @view-benefit="handleLink"
-      />
-      
+    <SwiperHorizontal
+      title="Benefícios mais recentes"
+      :items="mostRecents"
+      @view-benefit="handleLink"
+    />
+
+    <div class="flex flex-col mt-16">  
       <v-container>
         <v-sheet class="mx-auto mt-16" color="white" max-width="1200">
           <v-slide-group v-model="carrouselSquareModel" show-arrows>
@@ -59,7 +54,9 @@
 
 <script>
 import BenefitItem from '@/components/BenefitItem.vue'
+import BenefitsCarousel from '@/components/BenefitsCarousel.vue';
 import HorizontalSlider from '@/components/HorizontalSlider.vue';
+import SwiperHorizontal from '@/components/SwiperHorizontal.vue';
 
 export default {
   components: {
@@ -70,53 +67,109 @@ export default {
     return {
       benefits: [
         {
-          label: 'Para se divertir',
-          image: '/images/diversao.png',
+          label: 'Lazer',
+          image: '/images/benefits/Lazer.png',
           category: 'Lazer',
           link: '',
           position: 'center',
         },
         {
           label: 'Para comer',
-          image: '/images/comida.png',
+          image: '/images/benefits/Alimentacao.png',
           category: 'Alimentação',
           link: '',
           position: 'center'
         },
         {
           label: 'Lar doce lar',
-          image: '/images/Lar-Doce-Lar.png',
+          image: '/images/benefits/Para-sua-Casa.png',
           category: 'Para sua casa',
           link: '',
           position: 'center'
         },
         {
-          label: 'Cuidados com pet',
-          image: '/images/pet.png',
+          label: 'Animais',
+          image: '/images/benefits/Animais.png',
           category: 'Animais',
           link: '',
           position: 'center'
         },
-        // {
-        //   label: 'Viagens',
-        //   image: '/images/viagem.png',
-        //   category: ''],
-        //   link: '',
-        //   position: '40% bottom'
-        // },
+        {
+          label: 'Autos',
+          image: '/images/benefits/Autos.png',
+          category: 'Autos',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Combustíveis',
+          image: '/images/benefits/Combustivel.png',
+          category: 'Combustíveis',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Comércio',
+          image: '/images/benefits/Comercio.png',
+          category: 'Comércio',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Comunicação',
+          image: '/images/benefits/Comunicacao.png',
+          category: 'Comunicação',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Academia',
+          image: '/images/benefits/Academia.png',
+          category: '',
+          link: '',
+          position: 'center'
+        },
         {
           label: 'Autocuidado',
-          image: '/images/autocuidado.png',
+          image: '/images/benefits/Saude.png',
           category: 'Saúde',
           link: '',
           position: 'center'
         },
         {
-          label: 'Foco na carreira',
-          image: '/images/trabalho.png',
+          label: 'Informática',
+          image: '/images/benefits/Informatica.png',
+          category: 'Informática',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Online',
+          image: '/images/benefits/Online.png',
+          category: 'Online',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Seguros e Planos',
+          image: '/images/benefits/Seguros-e-Planos.png',
+          category: 'Seguros e Planos',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Serviços',
+          image: '/images/benefits/Servicos.png',
+          category: 'Serviços',
+          link: '',
+          position: 'center'
+        },
+        {
+          label: 'Educação',
+          image: '/images/benefits/Educacao.png',
           category: 'Educação',
           link: '',
-          position: '50% 12px'
+          position: 'center'
         },
       ],
       slides: [

@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Banner: typeof import('./src/components/Banner.vue')['default']
     BenefitItem: typeof import('./src/components/BenefitItem.vue')['default']
+    BenefitsCarousel: typeof import('./src/components/BenefitsCarousel.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
@@ -17,5 +18,6 @@ declare module 'vue' {
     PrivacyPolicy: typeof import('./src/components/PrivacyPolicy.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SwiperHorizontal: typeof import('./src/components/SwiperHorizontal.vue')['default']
   }
 }

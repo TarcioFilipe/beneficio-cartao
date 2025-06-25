@@ -3,10 +3,11 @@
     <div class="flex flex-col mt-6">
       <v-carousel
         show-arrows="hover"
-        height="400"
+        height
         cycle
         hide-delimiter-background
-        class="text-white"
+        color="black"
+        class="text-sm sm:text-lg"
       >
         <v-carousel-item
           v-for="(slide, i) in slides"
@@ -18,8 +19,8 @@
               <v-img
                 :lazy-src="slide.image"
                 :src="slide.image"
-                cover
                 class="rounded-xl"
+                cover
               />
             </div>
           </v-sheet>

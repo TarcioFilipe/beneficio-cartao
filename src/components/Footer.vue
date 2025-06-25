@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="flex flex-col h-full text-center gap-2 py-8 bg-linear-to-b from-[#212F6B] to-[#2674CB]">
+  <v-footer class="flex flex-col h-full text-center gap-2 py-8 bg-linear-to-b from-[#212F6B] to-[#2674CB] text-white">
     <v-container class="flex flex-col items-center justify-center">
       <div class="flex items-center justify-center gap-3 ">
         <v-btn v-for="icon in icons" :key="icon" :icon="icon" density="comfortable" variant="text"></v-btn>
